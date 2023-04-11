@@ -88,9 +88,9 @@ public class CgtInterface1 {
     }
 
     private void mSaveToFile() {
-
         // Writing to a file
-        String fileName = "user_informations.txt";
+        // initialize file name
+        String fileName = "all_user_information.txt";
         PrintWriter printWriter;
 
         try {
@@ -157,6 +157,7 @@ public class CgtInterface1 {
                 printWriter.println("\nNo users.");
             }
 
+            System.out.println("\nSuccess! Save all user information into a txt file.");
             // Terminate ouptut stream
             printWriter.close();
 
@@ -166,7 +167,7 @@ public class CgtInterface1 {
         } catch (FileNotFoundException e) {
 
             // If there occurs any error in file saving
-            System.out.println("Error Opeing File " + fileName);
+            System.out.println("\nSorry! Error Opeing File " + fileName);
             System.exit(0);
         }
     }

@@ -1,0 +1,47 @@
+User 1:
+      • Name              : Forhad Kashem Tipu
+      • Residency status  : true            
+      • Annual salary     : 120000.0        
+      • Buying price      : 5000.0          
+      • Selling price     : 8000.0          
+      • CGT               : 555.00          
+      • Actual profit     : 945.00          
+      • Remaining amount  : 225.00          
+      • Num of investment : 2               
+
+      • Investment 1:
+        Predicted Profit for Investment in Best Coin.
+
+        Years      YearlyProfit    TotalProfit    
+        --------------------------------------- 
+        1          18.00           18.00          
+        2          39.60           57.60          
+        3          81.00           138.60         
+
+      • Investment 2:
+        Predicted Profit for Investment in Simple Coin.
+
+        Years      YearlyProfit    TotalProfit    
+        --------------------------------------- 
+        1          12.00           12.00          
+        2          26.40           38.40          
+        3          32.40           70.80          
+User 2:
+      • Name              : Habibun Nahar Bithi
+      • Residency status  : false           
+      • Annual salary     : 150000.0        
+      • Buying price      : 4000.0          
+      • Selling price     : 6000.0          
+      • CGT               : 740.00          
+      • Actual profit     : 1260.00         
+      • Remaining amount  : 610.00          
+      • Num of investment : 1               
+
+      • Investment 1:
+        Predicted Profit for Investment in Fast Coin.
+
+        Years      YearlyProfit    TotalProfit    
+        --------------------------------------- 
+        1          18.00           18.00          
+        2          52.50           70.50          
+        3          97.50           168.00         

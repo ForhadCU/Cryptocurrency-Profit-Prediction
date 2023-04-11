@@ -2,10 +2,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-// You may need to add extra methods as some parts may be incomplete
-// These files do not have proper comments, you need to add those
-// Some checks on Input values are missing, you need to add those
-
 public class User {
     private String name;
     private Investment investAccount;
@@ -15,11 +11,12 @@ public class User {
     private double sellingPrice;
     private int years;
     private boolean resident;
-
     private double actualCGTProfit;
     Map<String, Object> cgtDetailsMap = new HashMap<>();
 
+    // Constructor
     public User() {
+        // Assign initial values
         investAccount = new Investment();
         name = "";
         annualSalary = 0;
@@ -30,62 +27,74 @@ public class User {
     }
 
     public String getName() {
+        // Get user name
         return (name);
     }
 
     public boolean getRecidencyStatus() {
+        // Get user's residency status
         return (resident);
     }
 
-    public double getBuyingPrice(){
-        return(buyingPrice)
-        ;
+    public double getBuyingPrice() {
+        // Get user's crypto buying price
+        return (buyingPrice);
     }
 
-    public double getSellingPrice(){
-        return(sellingPrice)
-        ;
+    // Get user's crypto selling price
+    public double getSellingPrice() {
+        // Get user's crypto selling price
+        return (sellingPrice);
     }
 
-    public double getAnnualSalary()
-    {
-        return(annualSalary)
-        ;
+    public double getAnnualSalary() {
+        // Get user's annual salary
+        return (annualSalary);
     }
-
 
     public ArrayList<Investment> getInvestments() {
+        // Get all investments
         return (investments);
     }
 
+    // Get Capital Gain Tax Details
     public Map<String, Object> getCgtDetailsMap() {
         return cgtDetailsMap;
     }
 
     public void setCgtDetailsMap(Map<String, Object> cgtDetailsMap) {
+        // Set Capital Gain Tax Details
         this.cgtDetailsMap = cgtDetailsMap;
     }
 
     public void setName(String inputName) {
+        // Set user's name
         name = inputName;
     }
 
-    public void setInvestments(ArrayList<Investment> investments)
-    {
+    public void setInvestments(ArrayList<Investment> investments) {
+        // Set all investments
         this.investments = investments;
     }
 
     public void setInvestment(double amt1, double amt2, double amt3, int sel) {
+        // Set each investment
+        // initialize investment class object
         investAccount = new Investment();
+
+        // Call public method from Investment class and set investment information to the obejct
         investAccount.setAllDeposits(amt1, amt2, amt3);
         investAccount.setcoinSelection(sel);
 
+        // Add each object to a Object ArrayList
         investments.add(investAccount);
     }
 
     public void setUserDetails(String newName, double newAnnualSalary,
             double newBuyingPrice, double newSellingPrice,
             int newYears, boolean newResident) {
+
+        // Assign values 
         name = newName;
         annualSalary = newAnnualSalary;
         buyingPrice = newBuyingPrice;
@@ -95,18 +104,11 @@ public class User {
     }
 
     public void mCalculateCGT() {
-        // String cgtDetails = "";
-
-        /*  cgtDetails = "\n\nName: " + name +
-                "\nAnnual Salary: " + annualSalary +
-                "\nResident: " + resident;
-        
-        cgtDetails += "\nCryptocurrency: " + "\nBuying Price: " + buyingPrice +
-                "\nSelling Price: " + sellingPrice + "\nYears: " + years; */
-
         double CGTTaxableProfit = (sellingPrice - buyingPrice) / years;
         double annualIncome = annualSalary + CGTTaxableProfit;
         double taxRate = 0;
+
+        // Check resident status and assign tax rate according to annual income
         if (resident) {
             if (annualIncome <= 18200)
                 taxRate = 0;
@@ -127,22 +129,17 @@ public class User {
                 taxRate = 0.45;
         }
 
+        // Calculate CGT 
         double CGTtax = taxRate * CGTTaxableProfit;
+
+        // Calculate actual profit
         actualCGTProfit = CGTTaxableProfit - CGTtax;
 
-        /* cgtDetails = cgtDetails + "\n\nCapital Gains Tax:" +
-                "\nTax Rate: " + taxRate + "\nCGT: " + CGTtax + "\nProfit: " + actualCGTProfit;
-        */
+        // Put data into map
         cgtDetailsMap.put("taxRate", taxRate);
         cgtDetailsMap.put("CGTtax", CGTtax);
         cgtDetailsMap.put("actualCGTProfit", actualCGTProfit);
         cgtDetailsMap.put("remainingActualCGTProfit", actualCGTProfit);
-
-        // return (cgtDetailsMap);
-    }
-
-    public String printCrypto() {
-        return investAccount.printCrypto();
     }
 
     public void mShowCryptoTable() {
